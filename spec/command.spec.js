@@ -12,7 +12,7 @@ describe("Command class", function() {
     let newCommand = new Command('thisType', 'thisValue')
     expect(newCommand.commandType).toEqual('thisType')
   })
-  it('Constuctor sets command type', function() {
+  it('Constuctor sets command value', function() {
     let newCommand = new Command('thisType', 'thisValue')
     expect(newCommand.value).toEqual('thisValue')
   })

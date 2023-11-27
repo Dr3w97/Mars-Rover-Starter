@@ -19,7 +19,7 @@ describe("Rover class", function() {
     let rover = new Rover(1234);
     let message = new Message('ROVER', ['hello', 'can you see me']);
     // console.log(rover.receiveMessage(message));
-    expect(message.name).toEqual('ROVER');  
+    expect(rover.receiveMessage(message).message).toEqual('ROVER');  
   });
 
   it('response contains 2 results if 2 commands are entered', function(){
@@ -44,7 +44,7 @@ describe("Rover class", function() {
 
   it('rover responds correctly to the MODE_CHANGE command', function(){
     let rover = new Rover(1234);
-    let command = new Command('MODE_CHANGE');
+    let command = new Command('MODE_CHANGE', 'LOW_POWER' );
     let message = new Message('ROVER', [command]);
     let result = rover.receiveMessage(message);
     expect(rover.mode).toEqual('LOW_POWER')
@@ -55,7 +55,7 @@ describe("Rover class", function() {
 
   it('rover is unable to move in LOW_POWER mode', function(){
     let rover = new Rover(1234);
-    let command = [new Command ('MODE_CHANGE'), new Command('MOVE')];
+    let command = [new Command ('MODE_CHANGE', 'LOW_POWER'), new Command('MOVE', 3455)];
     let message = new Message('ROVER', command);
     let result = rover.receiveMessage(message);
     // console.log(rover.receiveMessage(message).results)

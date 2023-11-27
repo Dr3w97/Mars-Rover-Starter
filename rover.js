@@ -17,8 +17,8 @@ class Rover {
                'completed': true,
                'roverStatus':{'position': this.position, 'mode': this.mode, 'generatorWatts': this.generatorWatts}
       })
-      }else if (message.commands[i].commandType == 'MODE_CHANGE'){
-         this.mode = 'LOW_POWER'
+      }else if (message.commands[i].commandType == 'MODE_CHANGE' ){
+         this.mode = message.commands[i].value
          response.results.push({
             'completed': true,
             // 'roverStatus':{'position': this.position, 'mode': this.mode, 'generatorWatts': this.generatorWatts}
