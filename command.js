@@ -1,5 +1,5 @@
 class Command {
-   constructor(commandType, value) {
+   constructor(commandType, value = undefined) {
      this.commandType = commandType;
      if (!commandType) {
        throw Error("Command type required.");
